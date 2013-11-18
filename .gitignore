@@ -11,3 +11,10 @@
 *.lai
 *.la
 *.a
+
+*.ncb
+*.opt
+*.plg
+*.positions
+# Debug
+Debug/*

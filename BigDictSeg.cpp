@@ -221,7 +221,6 @@ char* BigDictSeg::DelHeadHalfWidthChar(char* s)
 }
 
 
-
 //core函数，输入一个串，直接返回所需要的结果串
 //可以考虑写到文件中
 //output是输出参数，在使用前要进行memset
@@ -367,22 +366,16 @@ int BigDictSeg::GetMaxMatch(char* s, long top, long bottom)
 	
 	if (len < 0 )
 	{
-		return -1;	//s 中未找到
+		return -1;	//s 中未找到,target串空
 	}
-	char* subs = new char[len];
-	while(top<=bottom){
+	while(top<=bottom) {
 		char* term = m_strTermTable[bottom].strterm;
 		int term_len = strlen(term);
-		memset(subs,'\0',len);
-		memcpy(subs,target,term_len);
-		int re = strcmp(subs,term);
-		if (re == 0)
-		{
+		if (strncmp(term, target, term_len) == 0) {
 			return term_len;
 		}
 		bottom--;
 	}
-	
 
 // 	long tmpT = top;
 // 	long tmpB = bottom;
