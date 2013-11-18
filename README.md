@@ -1,0 +1,4 @@
+BigSeg
+======
+
+Chinese Word Segmentation
